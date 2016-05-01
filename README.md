@@ -47,9 +47,14 @@ Figure 5 of [1]:
 <li>Install D-ITG on client, server, and attackers:
 <pre><code> $ sudo apt-get update
  $ sudo apt-get install d-itg </code></pre></li>
-<li> In order to capture and analyze the traces router needs scapy and matplotlib packages:
+<li> In order to capture and analyze the traces router needs scapy and matplotlib. Install these packages on router:
 <pre><code> $ sudo apt-get update
  $ sudo apt-get install python-scapy python-matplotlib </code></pre></li>
+ <li> Copy following scripts from the GENI folder to the router:
+ <ol>
+ <li> capture_and_analyze.py </li>
+ <li> fig4.sh </li>
+ <li> fig5.sh </li></ol></li>
 </ol>
 </li>
 </ol>
