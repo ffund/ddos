@@ -44,21 +44,35 @@ def main(interface, show, duration, bins, output):
     sources = {'Total': [0]*binCount}
 
     for p in capture:
-        print p.summary()
         if p[IP].src not in sources:
             sources[p[IP].src] = [0]*binCount
         sources[p[IP].src][int(1000*(p.time-t0)/bins)] += 8*p[IP].len/1000.0
         sources['Total'][int(1000*(p.time-t0)/bins)] += 8*p[IP].len/1000.0
 
     x = [i*bins/1000.0 for i in range(binCount)]
+
+    first_to_15 = 0
+    first_to_20 = 0
+    for ii, val in enumerate(x):
+        if val >= 15 and not first_to_15:
+            first_to_15 = ii
+        if val >= 20 and not first_to_20:
+            first_to_20 = ii
+
+    if not show:
+        print sum(sources["10.10.1.1"][first_to_15:first_to_20])/(bins*(first_to_20-first_to_15))
+        return(0)
+
+    print "time:", x
     for src in sources:
+        print src, sources[src]
         plt.plot(x, [i/bins for i in sources[src]], label=names[src])
 
     plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
                ncol=2, mode="expand", borderaxespad=0.)
     plt.ylim(0, 1.05)
-    plt.xlabel('Time')
-    plt.xlabel('Bandwidth')
+    plt.xlabel('Time (s)')
+    plt.xlabel('Bandwidth (Mbps)')
     plt.yticks(np.arange(0, 1.05, 0.05))
     plt.grid()
     plt.savefig(output+'.png', dpi=None, facecolor='w', edgecolor='w',
@@ -71,21 +85,11 @@ def main(interface, show, duration, bins, output):
     for src in ["10.10.1.1"]:
         plt.plot(x, [i/bins for i in sources[src]], label=names[src])
 
-    first_to_15 = 0
-    first_to_20 = 0
-    for ii, val in enumerate(x):
-        if val >= 15 and not first_to_15:
-            first_to_15 = ii
-        if val >= 20 and not first_to_20:
-            first_to_20 = ii
-
-    print sources["10.10.1.1"][first_to_15:first_to_20]
-
     plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
                ncol=2, mode="expand", borderaxespad=0.)
     plt.ylim(0, 0.12)
-    plt.xlabel('Time')
-    plt.xlabel('Bandwidth')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Bandwidth (Mbps)')
     plt.yticks(np.arange(0, 0.12, 0.01))
     plt.grid()
     plt.savefig(output+'_client.png', dpi=None, facecolor='w', edgecolor='w',

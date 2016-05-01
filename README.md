@@ -63,7 +63,7 @@ Figure 5 of [1]:
 <pre><code> $ sudo tc qdisc del dev eth13 root
  $ sudo tc qdisc replace dev eth13 root tbf rate 1mbit limit 550 burst 550 peakrate 1.0001mbit mtu 560 </code></pre></li>
 </li>
-<li> At server, run DITGRecv:
+<li> At server, run ITGRecv:
 <pre><code> $ ITGRecv </code></pre></li>
 </ol>
 
