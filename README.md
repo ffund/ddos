@@ -1,7 +1,6 @@
 # Distributed Denial of Service Attacks
-Reproducing the results of: Lau, Felix, et al. "Distributed denial of service attacks." Systems, Man, and Cybernetics, 2000 IEEE International Conference on. Vol. 3. IEEE, 2000.
-
-Using GENI.
+Using GENI to reproduce the results of:
+[1] Lau, Felix, et al. "Distributed denial of service attacks." Systems, Man, and Cybernetics, 2000 IEEE International Conference on. Vol. 3. IEEE, 2000.
 
 ### Introduction ###
 Here we reproduce Figures 4 and 5 of Distributed Denial of Service Attacks paper.
@@ -34,6 +33,11 @@ In this project we are interested to reproduce two specific figures from Lau et.
 Figures 4 and 5, which show the performance of the router under DropTail and Random Early Detection (RED) buffer management policies.
 Authors of the original paper show that under DropTail attackers can fully deny the client of access to the server, however, under RED, client can still communicate with the server, although at a slower pace and with degraded quality of service.
 ### Results ###
+Figure 4 of [1]:
+![fig4.png](https://raw.githubusercontent.com/aaghdai/ddos/master/Figures/fig4.png)
+
+Figure 5 of [1]:
+![fig5.png](https://raw.githubusercontent.com/aaghdai/ddos/master/Figures/fig5.png)
 
 ### Run My Experiment ###
 
