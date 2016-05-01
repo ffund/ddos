@@ -19,6 +19,7 @@ In this context, it is intersting to see how queueing networks will perform if t
 Felix Lau et. al tried to find an answer to this question in 2000, and published their results in the paper we cite today.
 
 In their experiment, they have simulated the simplest of DDOS attacks, when a router is targeted by the attacker aiming at overwhelming its queues and authors have analyzed how different queueing management techniques perform under the DDOS attack.
+![sample.png](https://raw.githubusercontent.com/aaghdai/ddos/master/Figures/sample.png)
 As shown in the figure, a client tries to reach a service through a single hop network with a router connecting it to the server.
 Assuming that an attacker takes control of a set of zombie machines connected to the same router, we simulate how he/she can make the service unavailable to the client by targeting the router and overwhelming its queue.
 As an outcome, packets will be droped while the attack is in progress and the client will experience a considerable drop in its bandwidth.
