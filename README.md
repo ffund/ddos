@@ -45,7 +45,13 @@ Figure 5 of [1]:
   <li>Install prerequierements:
     <ol>
       <li>Install D-ITG on client, server, and attackers:
-      <pre><code> $ sudo apt-get install d-itg </code></pre> </li>
+        <pre><code> $ sudo apt-get update
+        $ sudo apt-get install d-itg </code></pre>
+      </li>
+      <li> In order to capture and analyze the traces router needs scapy and matplotlib packages:
+        <pre><code> $ sudo apt-get update
+        $ sudo apt-get install python-scapy python-matplotlib </code></pre>
+      </li>
     </ol>
   </li>
 </ol>
