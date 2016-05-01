@@ -42,7 +42,7 @@ Figure 5 of [1]:
 ### Run My Experiment ###
 <ol>
 <li>Create an architecture with a client, a server, and 12 attackers all connected to a router in a star network. An RSPEC for this topology is included in GENI folder.</li>
-<li>Install prerequierements:
+<li>Install pre-requirements:
 <ol>
 <li>Install D-ITG on client, server, and attackers:
 <pre><code> $ sudo apt-get update
