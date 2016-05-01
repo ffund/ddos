@@ -53,6 +53,7 @@ Figure 5 of [1]:
 <li> Copy following scripts from GENI/ to the router:
 <ol>
 <li> capture_and_analyze.py </li>
+<li> draw.py </li>
 <li> fig4.sh </li>
 <li> fig5.sh </li></ol></li>
 </ol>
@@ -82,6 +83,9 @@ Figure 5 of [1]:
 <pre><code> $ ./fig5.sh eth13 red | tee red.res </code></pre></li>
 </li>
 </ol>
+</li>
+<li> Sensitivity Analysis: run draw.py in the same folder as red.res & tbf.res.
+<pre><code> $ python draw.py </code></pre></li>
 </li>
 </ol>
 

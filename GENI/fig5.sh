@@ -25,6 +25,8 @@ done
 wait
 sudo chmod 744 ${of}*png
 
+sleep 10
+
 for i in 100 125 150 175 200 
 do
     AVG=""
@@ -48,7 +50,7 @@ done
 
         wait
         AVG="$AVG $(<fig5.tmp)"
-        sleep 2
+        sleep 10
     done
     echo "$i: $AVG"
 done
