@@ -41,19 +41,16 @@ Figure 5 of [1]:
 
 ### Run My Experiment ###
 <ol>
-  <li>Create an architecture with a client, a server, and 12 attackers all connected to a router in a star network. An RSPEC for this topology is included in GENI folder.</li>
-  <li>Install prerequierements:
-    <ol>
-      <li>Install D-ITG on client, server, and attackers:
-        <pre><code> $ sudo apt-get update
-        $ sudo apt-get install d-itg </code></pre>
-      </li>
-      <li> In order to capture and analyze the traces router needs scapy and matplotlib packages:
-        <pre><code> $ sudo apt-get update
-        $ sudo apt-get install python-scapy python-matplotlib </code></pre>
-      </li>
-    </ol>
-  </li>
+<li>Create an architecture with a client, a server, and 12 attackers all connected to a router in a star network. An RSPEC for this topology is included in GENI folder.</li>
+<li>Install prerequierements:
+<ol>
+<li>Install D-ITG on client, server, and attackers:
+<pre><code> $ sudo apt-get update$ sudo apt-get install d-itg </code></pre></li>
+<li> In order to capture and analyze the traces router needs scapy and matplotlib packages:
+<pre><code> $ sudo apt-get update
+$ sudo apt-get install python-scapy python-matplotlib </code></pre></li>
+</ol>
+</li>
 </ol>
 
 ### Notes ###
