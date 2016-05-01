@@ -50,12 +50,23 @@ Figure 5 of [1]:
 <li> In order to capture and analyze the traces router needs scapy and matplotlib. Install these packages on router:
 <pre><code> $ sudo apt-get update
  $ sudo apt-get install python-scapy python-matplotlib </code></pre></li>
- <li> Copy following scripts from the GENI/ to the router:
- <ol>
- <li> capture_and_analyze.py </li>
- <li> fig4.sh </li>
- <li> fig5.sh </li></ol></li>
+<li> Copy following scripts from GENI/ to the router:
+<ol>
+<li> capture_and_analyze.py </li>
+<li> fig4.sh </li>
+<li> fig5.sh </li></ol></li>
 </ol>
+</li>
+<li> Get DropTail results:
+<ol>
+<li> Setup tbf on the interface that connects router to the server:
+<pre><code> $ sudo tc qdisc del dev eth13 root
+ $ sudo tc qdisc replace dev eth13 root tbf rate 1mbit limit 550 burst 550 peakrate 1.0001mbit mtu 560 </code></pre></li>
+</li>
+</ol>
+
+</li>
+<li> Get RED results:
 </li>
 </ol>
 
