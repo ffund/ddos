@@ -59,10 +59,12 @@ Figure 5 of [1]:
 </li>
 <li> Get DropTail results:
 <ol>
-<li> Setup tbf on the interface that connects router to the server:
+<li> Setup token bucket filter on the interface that connects router to the server:
 <pre><code> $ sudo tc qdisc del dev eth13 root
  $ sudo tc qdisc replace dev eth13 root tbf rate 1mbit limit 550 burst 550 peakrate 1.0001mbit mtu 560 </code></pre></li>
 </li>
+<li> At server, run DITGRecv:
+<pre><code> $ ITGRecv </code></pre></li>
 </ol>
 
 </li>

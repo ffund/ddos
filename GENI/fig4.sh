@@ -1,6 +1,6 @@
-TestDur=10
-AtkDuration=6
-AtkStart=2
+TestDur=25
+AtkDuration=22
+AtkStart=1.5
 
 of=$1
 

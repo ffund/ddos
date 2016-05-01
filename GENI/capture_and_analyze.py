@@ -71,6 +71,16 @@ def main(interface, show, duration, bins, output):
     for src in ["10.10.1.1"]:
         plt.plot(x, [i/bins for i in sources[src]], label=names[src])
 
+    first_to_15 = 0
+    first_to_20 = 0
+    for ii, val in enumerate(x):
+        if val >= 15 and not first_to_15:
+            first_to_15 = ii
+        if val >= 20 and not first_to_20:
+            first_to_20 = ii
+
+    print sources["10.10.1.1"][first_to_15:first_to_20]
+
     plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
                ncol=2, mode="expand", borderaxespad=0.)
     plt.ylim(0, 0.12)
