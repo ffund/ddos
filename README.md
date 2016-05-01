@@ -54,57 +54,8 @@ Under RED however, increasing total attack bandwidth does not affect the user by
 ![result-red.png](https://raw.githubusercontent.com/aaghdai/ddos/master/Results/result-red.png)
 
 ### Run My Experiment ###
-<ol>
-<li>Create an architecture with a client, a server, and 12 attackers all connected to a router in a star network. An RSPEC for this topology is included in GENI/ .</li>
-<li>Install pre-requirements:
-<ol>
-<li>Install D-ITG on client, server, and attackers:
-<pre><code> $ sudo apt-get update
- $ sudo apt-get install d-itg </code></pre></li>
-<li> In order to capture and analyze the traces router needs scapy and matplotlib. Install these packages on router:
-<pre><code> $ sudo apt-get update
- $ sudo apt-get install python-scapy python-matplotlib </code></pre></li>
-<li> Copy following scripts from GENI/ to the router:
-<ol>
-<li> capture_and_analyze.py </li>
-<li> draw.py </li>
-<li> fig4.sh </li>
-<li> fig5.sh </li></ol></li>
-</ol>
-</li>
-<li> Get DropTail results:
-<ol>
-<li> Setup token bucket filter on the interface that connects router to the server:
-<pre><code> $ sudo tc qdisc del dev eth13 root
- $ sudo tc qdisc replace dev eth13 root tbf rate 1mbit limit 550 burst 550 peakrate 1.0001mbit mtu 560 </code></pre></li>
-</li>
-<li> At server, run ITGRecv:
-<pre><code> $ ITGRecv </code></pre></li>
-<li> At the router, run the script to reproduce Figure4, specifying interface to server and output file name:
-<pre><code> $ ./fig4.sh eth13 tbf | tee tbf.res </code></pre></li>
-</li>
-</ol>
-<li> Get RED results:
-<ol>
-<li> Setup RED on the interface that connects router to the server:
-<pre><code> $ sudo tc qdisc del dev eth13 root
- $ sudo tc qdisc replace dev eth13 root red limit 100000 min 4000 max 12500 avpkt 540 burst 12 probability 0.02 bandwidth 1mbi
- </code></pre></li>
-</li>
-<li> At server, run ITGRecv:
-<pre><code> $ ITGRecv </code></pre></li>
-<li> At the router, run the script to reproduce Figure5, specifying interface to server and output file name:
-<pre><code> $ ./fig5.sh eth13 red | tee red.res </code></pre></li>
-</li>
-</ol>
-</li>
-<li> Sensitivity Analysis: run draw.py in the same folder as red.res & tbf.res.
-<pre><code> $ python draw.py </code></pre></li>
-</li>
-</ol>
 
 ### Notes ###
-
 This experiment was done on: Linux 3.13.0-33-generic X86-64, InstaGENI@uky.edu
 
 To capture the packets and draw the plots following python packages are requiered:
