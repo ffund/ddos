@@ -72,7 +72,7 @@ def main(interface, show, duration, bins, output):
                ncol=2, mode="expand", borderaxespad=0.)
     plt.ylim(0, 1.05)
     plt.xlabel('Time (s)')
-    plt.xlabel('Bandwidth (Mbps)')
+    plt.ylabel('Bandwidth (Mbps)')
     plt.yticks(np.arange(0, 1.05, 0.05))
     plt.grid()
     plt.savefig(output+'.png', dpi=None, facecolor='w', edgecolor='w',

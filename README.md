@@ -65,10 +65,23 @@ Figure 5 of [1]:
 </li>
 <li> At server, run ITGRecv:
 <pre><code> $ ITGRecv </code></pre></li>
-</ol>
-
+<li> At the router, run the script to reproduce Figure4, specifying interface to server and output file name:
+<pre><code> $ ./fig4.sh eth13 tbf | tee tbf.res </code></pre></li>
 </li>
+</ol>
 <li> Get RED results:
+<ol>
+<li> Setup RED on the interface that connects router to the server:
+<pre><code> $ sudo tc qdisc del dev eth13 root
+ $ sudo tc qdisc replace dev eth13 root red limit 100000 min 4000 max 12500 avpkt 540 burst 12 probability 0.02 bandwidth 1mbi
+ </code></pre></li>
+</li>
+<li> At server, run ITGRecv:
+<pre><code> $ ITGRecv </code></pre></li>
+<li> At the router, run the script to reproduce Figure5, specifying interface to server and output file name:
+<pre><code> $ ./fig5.sh eth13 red | tee red.res </code></pre></li>
+</li>
+</ol>
 </li>
 </ol>
 
