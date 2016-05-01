@@ -19,10 +19,11 @@ In this context, it is intersting to see how queueing networks will perform if t
 Felix Lau et. al tried to find an answer to this question in 2000, and published their results in the paper we cite today.
 
 In their experiment, they have simulated the simplest of DDOS attacks, when a router is targeted by the attacker aiming at overwhelming its queues and authors have analyzed how different queueing management techniques perform under the DDOS attack.
-![sample.png](https://raw.githubusercontent.com/aaghdai/ddos/master/Figures/sample.png)
 As shown in the figure, a client tries to reach a service through a single hop network with a router connecting it to the server.
 Assuming that an attacker takes control of a set of zombie machines connected to the same router, we simulate how he/she can make the service unavailable to the client by targeting the router and overwhelming its queue.
 As an outcome, packets will be droped while the attack is in progress and the client will experience a considerable drop in its bandwidth.
+
+![sample.png](https://raw.githubusercontent.com/aaghdai/ddos/master/Figures/sample.png)
 
 The ultimate goal of the router is to forward packets from ligitimate users.
 Therefore, the key metric in this experiment is the rate at which client communicates with the server while the attack is in progress.
@@ -30,6 +31,7 @@ A rate of zero indicates no connectivity and a rate drop indicates service degra
 
 In this project we are interested to reproduce two specific figures from Lau et. al paper.
 Figures 4 and 5, which show the performance of the router under DropTail and Random Early Detection (RED) buffer management policies.
+Authors of the original paper show that under DropTail attackers can fully deny the client of access to the server, however, under RED, client can still communicate with the server, although at a slower pace and with degraded quality of service.
 ### Results ###
 
 ### Run My Experiment ###
