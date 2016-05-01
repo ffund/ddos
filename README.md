@@ -39,6 +39,20 @@ Figure 4 of [1]:
 Figure 5 of [1]:
 ![fig5.png](https://raw.githubusercontent.com/aaghdai/ddos/master/Figures/fig5.png)
 
+Verification of results:
+For Fig. 4 I was unable to verify that the client receive no bandwidth. Instead, the experiment shows that the client experiences a noticable rate drop:
+![tbf.png](https://raw.githubusercontent.com/aaghdai/ddos/master/Results/tbf.png)
+
+For Fig. 5 I was can verify the resulta. The experiment shows that the client maintains connectivity under RED even though attackers flood 9Mbps of packets to the router:
+![red-client.png](https://raw.githubusercontent.com/aaghdai/ddos/master/Results/red_client.png)
+
+Further, I also analysed how sensitive these results are to do change of total attack bandwidth.
+Under DropTail queue, attackers can further degrade the client's desired rate by flooding more data:
+![result-tbf.png](https://raw.githubusercontent.com/aaghdai/ddos/master/Results/result-tbf.png)
+
+Under RED however, increasing total attack bandwidth does not affect the user by a noticable margin:
+![result-red.png](https://raw.githubusercontent.com/aaghdai/ddos/master/Results/result-red.png)
+
 ### Run My Experiment ###
 <ol>
 <li>Create an architecture with a client, a server, and 12 attackers all connected to a router in a star network. An RSPEC for this topology is included in GENI/ .</li>
