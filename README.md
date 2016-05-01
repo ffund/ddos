@@ -104,5 +104,35 @@ Under RED however, increasing total attack bandwidth does not affect the user by
 </ol>
 
 ### Notes ###
+This experiment was done on: Linux 3.13.0-33-generic X86-64, InstaGENI@uky.edu
 
+To capture the packets and draw the plots following python packages are requiered:
+<ol>
+<li> Python 2.7.6 </li>
+<li> scapy 2.2.0 </li>
+<li> numpy 1.8.2 </li>
+<li> matplotlib 1.3.1 </li>
+</ol>
 
+Using GENI for verifying the result of [1] is completely doable.
+It's pretty easy to get the required resources even through InstaGENI, and modern linux kernels support all the queue management techniqeus used in this paper.
+
+### Troubleshoot ###
+<ol>
+<li> Getting python error complaining about lack of $DISPLAY environment means that you need X forwarding to enable matplotlib plot functions.
+On a Linux operating system you just need to pass -X to enable X forwarding:
+
+<pre><code> $ ssh -X [user]@[machine] </code></pre>
+
+To enable X forwarding on Windows/Mac follow these instructions: [Windows](https://wiki.utdallas.edu/wiki/display/FAQ/X11+Forwarding+using+Xming+and+PuTTY) [Mac Os](http://dyhr.com/2009/09/05/how-to-enable-x11-forwarding-with-ssh-on-mac-os-x-leopard/)
+</li>
+<li> Router keeps asking for password in order to connect a1-a12 machines: It means that you need to setup ssh key at router and let it connect to a1-a12 using the given keys. There are two workarounds for this problem:
+<ol>
+<li> Copy the private key you use for connecting to GENI machines as ~/.ssh/id_rsa. </li>
+<li> Generate a new key for the router using ssh-keygen and copy it to a1-a12 using ssh-copy-id script.
+<pre><code> $ ssh-keygen
+ $ for i in {1..12};do ssh-copy-id a$i; done</code></pre>
+</li>
+</ol>
+</li>
+</ol>
