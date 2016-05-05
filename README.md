@@ -131,7 +131,7 @@ To enable X forwarding on Windows/Mac follow these instructions:
 <li> Router keeps asking for password in order to connect a1-a12 machines: It means that you need to setup ssh key at router and let it connect to a1-a12 using the given keys. There are two workarounds for this problem:
 <ol>
 <li> Copy the private key you use for connecting to GENI machines as <pre><code> ~/.ssh/id_rsa </code></pre>
-(you may need to fix the file permission for the key: <pre><code> chmod 600 ~/.ssh/id_rsa </code></pre>)</li>
+You may need to fix the file permission for the key: <pre><code> chmod 600 ~/.ssh/id_rsa </code></pre></li>
 <li> Generate a new key for the router using ssh-keygen and copy it to a1-a12 using ssh-copy-id script.
 <pre><code> $ ssh-keygen
  $ for i in {1..12};do ssh-copy-id a$i; done</code></pre>
