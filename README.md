@@ -90,7 +90,7 @@ Under RED however, increasing total attack bandwidth does not affect the user by
     <ol>
       <li> Setup RED on the interface that connects router to the server:
         <pre><code> $ sudo tc qdisc del dev eth13 root
- $ sudo tc qdisc replace dev eth13 root red limit 100000 min 4000 max 12500 avpkt 540 burst 12 probability 0.02 bandwidth 1mbi </code></pre></li>
+ $ sudo tc qdisc replace dev eth13 root red limit 100000 min 4000 max 12500 avpkt 540 burst 12 probability 0.02 bandwidth 1mbit </code></pre></li>
       </li>
       <li> At server, run ITGRecv:
         <pre><code> $ ITGRecv </code></pre></li>
