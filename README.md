@@ -118,6 +118,25 @@ It's pretty easy to get the required resources even through InstaGENI, and moder
 
 ### Troubleshoot ###
 <ol>
+
+<li>
+If you are not using provided rspec file, please make sure you set the same IP addresses on the client and attacker machines as in the rspec:
+  <ol>
+    <li>"10.10.1.1": "Client"</li>
+    <li>"10.10.2.1": "Attacker 1"</li>
+    <li>"10.10.3.1": "Attacker 2"</li>
+    <li>"10.10.4.1": "Attacker 3"</li>
+    <li>"10.10.5.1": "Attacker 4"</li>
+    <li>"10.10.6.1": "Attacker 5"</li>
+    <li>"10.10.7.1": "Attacker 6"</li>
+    <li>"10.10.8.1": "Attacker 7"</li>
+    <li>"10.10.9.1": "Attacker 8"</li>
+    <li>"10.10.10.1": "Attacker 9"</li>
+    <li>"10.10.11.1": "Attacker 10"</li>
+    <li>"10.10.12.1": "Attacker 11"</li>
+    <li>"10.10.13.1": "Attacker 12"</li>
+</li>
+
 <li> Getting python error complaining about lack of $DISPLAY environment means that you need X forwarding to enable matplotlib plot functions.
 On a Linux operating system you just need to pass -X to enable X forwarding:
 
