@@ -158,4 +158,9 @@ You may need to fix the file permission for the key: <pre><code> chmod 600 ~/.ss
 </li>
 </ol>
 </li>
+
+<li> The key used at the router to ssh client machines should not have a passphrase, as it asks for the passphrase every time the router tries to ssh to an attacker. To fully reproduce the results, these scripts try to ssh from router around 400 times, which makes it impossible for you to enter the passphrase every time.
+You can either make a new key without a passphrase or remove the passphrase from your ssh key by following this guid:
+[Remove Passphrase](http://stackoverflow.com/questions/112396/how-do-i-remove-the-passphrase-for-the-ssh-key-without-having-to-create-a-new-ke)
+</li>
 </ol>
