@@ -144,7 +144,6 @@ On a Linux operating system you just need to pass -X to enable X forwarding:
 <pre><code> $ ssh -X [user]@[machine] </code></pre>
 
 To enable X forwarding on Windows/Mac follow these instructions:
-[Windows](https://wiki.utdallas.edu/wiki/display/FAQ/X11+Forwarding+using+Xming+and+PuTTY)
 
 </li>
 <li> Router keeps asking for password in order to connect a1-a12 machines: It means that you need to setup ssh key at router and let it connect to a1-a12 using the given keys. There are two workarounds for this problem:
@@ -163,3 +162,7 @@ You can either make a new key without a passphrase or remove the passphrase from
 [Remove Passphrase](http://stackoverflow.com/questions/112396/how-do-i-remove-the-passphrase-for-the-ssh-key-without-having-to-create-a-new-ke)
 </li>
 </ol>
+
+
+[Windows](https://wiki.utdallas.edu/wiki/display/FAQ/X11+Forwarding+using+Xming+and+PuTTY)
+[Mac Os](http://dyhr.com/2009/09/05/how-to-enable-x11-forwarding-with-ssh-on-mac-os-x-leopard/)
