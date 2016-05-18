@@ -24,8 +24,8 @@
 \begin{abstract}
 
 Here we reproduce Figures \hyperref[fig4]{4} and \hyperref[fig5]{5} of Distributed Denial of Service Attacks paper.
-The objective of this experiment is to show how effective Distributed Denial of Service (DDOS) attacks are under two different queueing schemes: Drop Tail and Random Early Detection.
-It shows whether or not legitimate users can obtain desired service while a DDOS attack is in process.
+The objective of this experiment is to show how effective Distributed Denial of Service (DDoS) attacks are under two different queueing schemes: Drop Tail and Random Early Detection.
+It shows whether or not legitimate users can obtain desired service while a DDoS attack is in process.
 Results are verified using a GENI testbed.
 \end{abstract}
 
@@ -45,8 +45,6 @@ A Denial of Service (DoS) attack is defined as an attempt to make a machine or a
 When we have more than one source attacing the target, it is called a Distributed DoS (DDoS) \cite{lau2000distributed}.
 Typically, attackers try to take control of a lot of unique IP addresses (Zombie Machines) and use them to exhaust a resource either on the target machine, or the network that connects legitimate users to the target machine/s.
 
-%%%%%%%%5add the figure yourself.
-
 \begin{figure}
     \centering
     \includegraphics[width=0.35\textwidth]{../Figures/sample.png} \caption{A simple DDoS attack \cite{lau2000distributed}.} \label{sampleDDoS}
@@ -59,24 +57,19 @@ As an outcome, packets will be droped while the attack is in progress and the cl
 Therefore, the key metric in this experiment is the rate at which client communicates with the server while the attack is in progress.
 A rate of zero indicates no connectivity and a rate drop indicates service degradation.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{../Figures/arch1.png} \caption{Architecture for DropTail queue.} \label{arch1}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{../Figures/arch2.png} \caption{Architecture for RED queue.} \label{arch2}
-\end{figure}
-
 \section {Experiment Design}
 
 Similar to the original experiment, the client establishes a constant bit rate (CBR) UDP stream to the server.
 To verify Figure 4, we show that only 2 zombie machines, as in the figure \ref{arch1}, sending CBR traffic are sufficient to disrupt the service when router implements DropTail queueing policy.
-Figure 5 shows how queues with Random Early Detection (RED) policy perform under a DDOS attack.
+Figure 5 shows how queues with Random Early Detection (RED) policy perform under a DDoS attack.
 However, in this scenario we need more zombie machines, as in figure \ref{arch2}, to disrupt the service.
 Results from the original paper show that unlike DropTail, the client rate will be decreased rather than going down to zero.
 It is still considered to be a successful attack as the client experience noticeable service degradation.
+
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../Figures/arch1.png} \caption{Architecture for DropTail queue.} \label{arch1}
+\end{figure}
 
 Since the authors have not specified the parameters, setting the proper parameters is the toughest part for this project especially for the second part where we experiment with RED, since configuring RED is known to be difficult when it comes to setting proper parameters \cite{floyd1993random}.
 
@@ -86,6 +79,11 @@ For the DropTail queue, we know that the queue rate should be smaller than sum o
 Therefore for NS2 simulation I am sticking to CBR rates 0.1Mbps for client and 0.6Mbps for zombie machines using 500B packets all of which to be aggregated on a queue with rate 1Mbps.
 Queue size will also be set to the bandwidth delay product (assuming 1ms RTT): $1Mbps*1ms=1Kb=125B$.
 For GENI testbed, we can use tc, where we stick to parameters from lab2 with limited buffer size according to the average RTT of given VMs using bandwidth-delay product (i.e. around 125B per milli second of RTT).
+
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../Figures/arch2.png} \caption{Architecture for RED queue.} \label{arch2}
+\end{figure}
 
 For RED experiment, we have to set 5 parameters: buffer space, $min_{th}$, $max_{th}$, $max_p$, and $w_q$.
 RED paper suggests $max_{th}$ to be set at least twice as $min_{th}$, author of RED in answer to another question \cite{red} suggests a value of 3 times as a rule of the thumb.
@@ -126,12 +124,12 @@ For each factor we plot the mean value of five replications and indicate the ran
 \section{Results}
 \begin{figure}[t!]
     \centering
-    \includegraphics[width=0.5\textwidth]{../Results/tbf.png} \caption{DDOS attack on a DropTail queue.} \label{tbf1}
+    \includegraphics[width=0.5\textwidth]{../Results/tbf.png} \caption{DDoS attack on a DropTail queue.} \label{tbf1}
 \end{figure}
 
 \begin{figure}[t!]
     \centering
-    \includegraphics[width=0.5\textwidth]{../Results/red_client.png} \caption{Client bandwidth while RED router is DDOS'ed.} \label{red1}
+    \includegraphics[width=0.5\textwidth]{../Results/red_client.png} \caption{Client bandwidth while RED router is DDoS'ed.} \label{red1}
 \end{figure}
 
 
