@@ -146,6 +146,7 @@ On a Linux operating system you just need to pass -X to enable X forwarding:
 To enable X forwarding on Windows/Mac follow these instructions:
 
 [Windows](https://wiki.utdallas.edu/wiki/display/FAQ/X11+Forwarding+using+Xming+and+PuTTY)
+
 [Mac Os](http://dyhr.com/2009/09/05/how-to-enable-x11-forwarding-with-ssh-on-mac-os-x-leopard/)
 
 </li>
