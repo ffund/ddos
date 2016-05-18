@@ -135,6 +135,7 @@ If you are not using provided rspec file, please make sure you set the same IP a
     <li>"10.10.11.1": "Attacker 10"</li>
     <li>"10.10.12.1": "Attacker 11"</li>
     <li>"10.10.13.1": "Attacker 12"</li>
+  </ol>
 </li>
 
 <li> Getting python error complaining about lack of $DISPLAY environment means that you need X forwarding to enable matplotlib plot functions.
