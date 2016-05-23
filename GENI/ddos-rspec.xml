@@ -1,0 +1,251 @@
+<rspec xmlns="http://www.geni.net/resources/rspec/3" xmlns:emulab="http://www.protogeni.net/resources/rspec/ext/emulab/1" xmlns:tour="http://www.protogeni.net/resources/rspec/ext/apt-tour/1" xmlns:jacks="http://www.protogeni.net/resources/rspec/ext/jacks/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.geni.net/resources/rspec/3    http://www.geni.net/resources/rspec/3/request.xsd" type="request">
+
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="router">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install python-scapy python-matplotlib git; sudo git clone https://github.com/ffund/ddos.git /root/ddos" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub -O /root/.ssh/id_rsa.pub" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa -O /root/.ssh/id_rsa" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-3"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-5"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-7"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-9"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-11"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-13"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-15"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-17"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-19"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-21"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-23"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-25"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-27"/>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-29"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="client">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-2"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="a1">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-4"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="a2">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-6"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="a3">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-8"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="a4">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-10"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="a5">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-12"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="a6">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-14"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="a7">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-16"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="a8">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-18"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="a9">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-20"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="a10">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-22"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="a11">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-24"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="a12">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-26"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<node xmlns="http://www.geni.net/resources/rspec/3" client_id="server">
+<icon xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" url="https://portal.geni.net/images/VM-noTxt-centered.svg"/>
+<sliver_type xmlns="http://www.geni.net/resources/rspec/3" name="default-vm"/>
+<services xmlns="http://www.geni.net/resources/rspec/3">
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo apt-get update; sudo apt-get -y install d-itg" shell="/bin/sh"/>
+<execute xmlns="http://www.geni.net/resources/rspec/3" command="sudo mkdir -p /root/.ssh; sudo wget -qO- https://raw.githubusercontent.com/ffund/ddos/master/GENI/id_rsa.pub | sudo tee --append /root/.ssh/authorized_keys > /dev/null" shell="/bin/sh"/>
+</services>
+<interface xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-28"/>
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="Site 1"/>
+</node>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-1">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-2"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-3"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-2">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-4"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-5"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-3">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-6"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-7"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-4">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-8"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-9"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-5">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-10"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-11"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-6">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-12"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-13"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-7">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-14"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-15"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-8">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-16"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-17"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-9">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-18"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-19"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-10">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-20"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-21"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-11">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-22"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-23"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-12">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-24"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-25"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-13">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-26"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-27"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+<link xmlns="http://www.geni.net/resources/rspec/3" client_id="link-14">
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-28"/>
+<interface_ref xmlns="http://www.geni.net/resources/rspec/3" client_id="interface-29"/>
+
+<site xmlns="http://www.protogeni.net/resources/rspec/ext/jacks/1" id="undefined"/>
+</link>
+</rspec>
