@@ -60,7 +60,7 @@ Under RED however, increasing total attack bandwidth does not affect the user by
     <ol>
       <li>Install D-ITG on client, server, and attackers:
         <pre><code> $ sudo apt-get update
-        $ sudo apt-get install d-itg </code></pre></li>
+ $ sudo apt-get install d-itg </code></pre></li>
       <li> In order to capture and analyze the traces router needs scapy and matplotlib. Install these packages on router:
         <pre><code> $ sudo apt-get update
  $ sudo apt-get install python-scapy python-matplotlib </code></pre></li>
@@ -90,7 +90,7 @@ Under RED however, increasing total attack bandwidth does not affect the user by
     <ol>
       <li> Setup RED on the interface that connects router to the server:
         <pre><code> $ sudo tc qdisc del dev eth13 root
- $ sudo tc qdisc replace dev eth13 root red limit 100000 min 4000 max 12500 avpkt 540 burst 12 probability 0.02 bandwidth 1mbi </code></pre></li>
+ $ sudo tc qdisc replace dev eth13 root red limit 10000 min 2500 max 7500 avpkt 540 burst 12 probability 0.02 bandwidth 1mbit </code></pre></li>
       </li>
       <li> At server, run ITGRecv:
         <pre><code> $ ITGRecv </code></pre></li>
@@ -118,23 +118,53 @@ It's pretty easy to get the required resources even through InstaGENI, and moder
 
 ### Troubleshoot ###
 <ol>
+
+<li>
+If you are not using provided rspec file, please make sure you set the same IP addresses on the client and attacker machines as in the rspec:
+  <ol>
+    <li>"10.10.1.1": "Client"</li>
+    <li>"10.10.2.1": "Attacker 1"</li>
+    <li>"10.10.3.1": "Attacker 2"</li>
+    <li>"10.10.4.1": "Attacker 3"</li>
+    <li>"10.10.5.1": "Attacker 4"</li>
+    <li>"10.10.6.1": "Attacker 5"</li>
+    <li>"10.10.7.1": "Attacker 6"</li>
+    <li>"10.10.8.1": "Attacker 7"</li>
+    <li>"10.10.9.1": "Attacker 8"</li>
+    <li>"10.10.10.1": "Attacker 9"</li>
+    <li>"10.10.11.1": "Attacker 10"</li>
+    <li>"10.10.12.1": "Attacker 11"</li>
+    <li>"10.10.13.1": "Attacker 12"</li>
+  </ol>
+</li>
+
 <li> Getting python error complaining about lack of $DISPLAY environment means that you need X forwarding to enable matplotlib plot functions.
 On a Linux operating system you just need to pass -X to enable X forwarding:
 
 <pre><code> $ ssh -X [user]@[machine] </code></pre>
 
 To enable X forwarding on Windows/Mac follow these instructions:
+
 [Windows](https://wiki.utdallas.edu/wiki/display/FAQ/X11+Forwarding+using+Xming+and+PuTTY)
+
 [Mac Os](http://dyhr.com/2009/09/05/how-to-enable-x11-forwarding-with-ssh-on-mac-os-x-leopard/)
 
 </li>
 <li> Router keeps asking for password in order to connect a1-a12 machines: It means that you need to setup ssh key at router and let it connect to a1-a12 using the given keys. There are two workarounds for this problem:
 <ol>
-<li> Copy the private key you use for connecting to GENI machines as ~/.ssh/id_rsa. </li>
+<li> Copy the private key you use for connecting to GENI machines as <pre><code> ~/.ssh/id_rsa </code></pre>
+You may need to fix the file permission for the key: <pre><code> chmod 600 ~/.ssh/id_rsa </code></pre></li>
 <li> Generate a new key for the router using ssh-keygen and copy it to a1-a12 using ssh-copy-id script.
 <pre><code> $ ssh-keygen
  $ for i in {1..12};do ssh-copy-id a$i; done</code></pre>
 </li>
 </ol>
 </li>
+
+<li> The key used at the router to ssh client machines should not have a passphrase, as it asks for the passphrase every time the router tries to ssh to an attacker. To fully reproduce the results, these scripts try to ssh from router around 400 times, which makes it impossible for you to enter the passphrase every time.
+You can either make a new key without a passphrase or remove the passphrase from your ssh key by following this guid:
+[Remove Passphrase](http://stackoverflow.com/questions/112396/how-do-i-remove-the-passphrase-for-the-ssh-key-without-having-to-create-a-new-ke)
+</li>
 </ol>
+
+
